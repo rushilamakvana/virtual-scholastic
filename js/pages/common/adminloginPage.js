@@ -56,6 +56,14 @@ window.onload = function () {
           })
           .then((data) => {
             console.log("data = ", data);
+            Swal.fire({
+              icon: "success",
+              title: "Yayy",
+              text: "Your assignment has been submitted successfully!",
+            });
+            setTimeout(() => {
+              window.location.href = "http://localhost:5500/adminPage.html";
+            }, 1000);
             // if (data) {
             //   if (data.message.includes("successfully")) {
             //     window.location.href = "adminPage.html";
@@ -68,8 +76,8 @@ window.onload = function () {
           });
         // } catch (err) {
         //   console.log("here");
-        //   Swal.fire({
-        //     icon: "error",
+        // Swal.fire({
+        //   icon: "error",
         //     title: "Oops...",
         //     text: "Invalid password.",
         //   });

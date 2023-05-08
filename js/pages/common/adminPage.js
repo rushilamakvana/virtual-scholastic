@@ -87,6 +87,14 @@ window.onload = function () {
           })
           .then((data) => {
             if (data) {
+              Swal.fire({
+                icon: "success",
+                title: "Yayy",
+                text: "teacher added successfully",
+              });
+              setTimeout(() => {
+                window.location.href = "http://localhost:5500/index.html";
+              }, 1000);
               console.log("data = ", data);
               // if (data.message.includes("successfully")) {
               //   window.location.href = "adminPage.html";

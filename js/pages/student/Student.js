@@ -40,56 +40,51 @@ window.onload = () => {
       console.log(localStorage.getItem("token"));
       let status = [];
       console.log("called");
-      document.getElementById("login-button").value = "Loading...";
-      // try {
-      fetch("http://localhost:3000/teacher/addStudent", {
-        method: "POST",
-        headers: new Headers({
-          "content-type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        }),
-        body: JSON.stringify({
-          email: email,
-          name: name,
-          enrollmentNo: id,
-        }),
-      })
-        .then((res) => {
-          // if (res.status === 400) {
-          //   // console.log("satus", res.status==);
-          // Swal.fire({
-          //   icon: "success",
-          //   title: "Yayy",
-          //   text: "Student added successfully",
-          // });
-          // setTimeout(() => {
-          //   window.location.href = "myCoursesPage.html";
-          // }, 1000);
-          // }
-          // document.getElementById("login-button").value = "Login";
-          return res.json();
+      // document.getElementById("login-button").value = "Loading...";
+      try {
+        fetch("http://localhost:3000/teacher/addStudent", {
+          method: "POST",
+          headers: new Headers({
+            "content-type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          }),
+          body: JSON.stringify({
+            email: email,
+            name: name,
+            enrollmentNo: id,
+          }),
         })
-        .then((data) => {
-          if (data) {
-            console.log("data = ", data);
-            // if (data.message.includes("successfully")) {
-            //   window.location.href = "adminPage.html";
-            //   // console.log("data = ", data);
-            // } else {
-            // }
-          }
-          // console.log("response = ", data.message.includes("successfully"));
-          document.getElementById("login-button").value = "Login";
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            if (data) {
+              console.log("data = ", data);
+              if (data.message.includes("successfully")) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Yayy",
+                  text: "Your assignment has been submitted successfully!",
+                });
+                setTimeout(() => {
+                  window.location.href = "teacherCourse.html";
+                }, 1000);
+                // console.log("data = ", data);
+              } else {
+              }
+            }
+            // console.log("response = ", data.message.includes("successfully"));
+            document.getElementById("login-button").value = "Login";
+          });
+      } catch (err) {
+        console.log("here");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Invalid password.",
         });
-      // } catch (err) {
-      //   console.log("here");
-      //   Swal.fire({
-      //     icon: "error",
-      //     title: "Oops...",
-      //     text: "Invalid password.",
-      //   });
-      //   document.getElementById("login-button").value = "Login";
-      // }
+        document.getElementById("login-button").value = "Login";
+      }
 
       // if (document.getElementById("student-radio").checked) {
       //   fetch("http://localhost:3000/auth/login", {

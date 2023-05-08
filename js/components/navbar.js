@@ -102,7 +102,19 @@ export const Navbar = ({ isTeacher, activeSection }) => {
                           : ""
                       }
                    
-                     
+                      ${
+                        isTeacher
+                          ? `<li ${
+                              activeSection === "my assignments" &&
+                              'class="active"'
+                            }>
+                              <a href="./teacherAssignments.html">
+                                  <i class="fas fa-check"></i>
+                                  <p>My assignments</p>
+                              </a>
+                          </li>`
+                          : ""
+                      }
                 </ul>
             </div>
           </>
@@ -186,19 +198,7 @@ export const Navbar = ({ isTeacher, activeSection }) => {
 //       </li>`
 //     : ""
 // }
-// ${
-//   isTeacher
-//     ? `<li ${
-//         activeSection === "PostAnnouncement" &&
-//         'class="active"'
-//       }>
-//         <a href="./announcementsPage.html">
-//             <i class="fas fa-question"></i>
-//             <p>Post announcement</p>
-//         </a>
-//     </li>`
-//     : ""
-// }
+
 // ${
 //   isTeacher
 //     ? `<li ${
