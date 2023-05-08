@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=1024" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Virtual Scholastic | Join Class</title>
+
+    <!--     Fonts and icons     -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <link href="./css/dashboard.css" rel="stylesheet" />
+    <link href="./css/notes.css" rel="stylesheet" />
+    <link href="./css/officeHour.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="Images/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="Images/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="Images/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="Images/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="Images/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="Images/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="Images/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="Images/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Images/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="Images/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="Images/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="Images/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+
+  <body style="background-color: #ebecf1">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12" id="preloader"></div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="sidebar" data-color="blue"></div>
+      <div class="main-panel" id="main-panel">
+        <!-- Navbar -->
+        <div class="top-navbar"></div>
+        <!-- End Navbar -->
+        <div class="panel-header panel-header-lg">
+          <canvas id="bigDashboardChart"></canvas>
+        </div>
+
+        <div id="note-taking"></div>
+
+        <div class="content">
+          <div class="text-center">
+            <i
+              class="fas fa-info-circle mt-4 pt-1"
+              style="font-size: 40px; color: light-blue"
+              data-toggle="collapse"
+              href="#collapseExample"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            ></i>
+          </div>
+          <div class="collapse text-center" id="collapseExample">
+            <div class="card col-12 col-md-4 card-body p-3 text-justify">
+              <ul>
+                <li>
+                  The cards denote the course-wise faculy cabins and their
+                  office hours are displayed.
+                </li>
+                <li>
+                  Light will turn from <b>red</b> to <b>green</b> during active
+                  office hours.
+                </li>
+                <li>
+                  Use <b>Arrow keys</b> to move the character(yourself) to these
+                  cabins and a popup will appear enabling you to join the call.
+                </li>
+                <li>
+                  Student Breakout Room is a space for the students to have some
+                  fun time and chill during their free hours. Teachers do not
+                  have access to this breakout room.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Student</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label for="student-id" id="student-id-label"
+                >Enter classroom ID </label
+              ><br />
+              <input
+                id="classId"
+                class="add-student-modal form-control"
+                type="text"
+                placeholder="classId"
+                style="border: 1px solid"
+              />
+            </div>
+
+            <button
+              type="button"
+              id="login-button"
+              class="btn btn-block btn-color"
+            >
+              Join classroom
+            </button>
+          </div>
+          <div
+            class="container-fluid"
+            id="button-navigation"
+            style="display: none"
+          >
+            <div class="row text-center">
+              <div class="col-12 col-md-6">
+                <button type="button" class="button caret" id="up">
+                  <i class="fas fa-caret-up" style="font-size: 25px"></i>
+                </button>
+              </div>
+              <div class="col-12 col-md-6">
+                <button type="button" class="button caret" id="down">
+                  <i class="fas fa-caret-down" style="font-size: 25px"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-12 col-md-6">
+                <button type="button" class="button caret" id="left">
+                  <i class="fas fa-caret-left" style="font-size: 25px"></i>
+                </button>
+              </div>
+              <div class="col-12 col-md-6">
+                <button type="button" class="button caret" id="right">
+                  <i class="fas fa-caret-right" style="font-size: 25px"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/components/commonUtility.js"></script>
+
+    <script src="./js/pages/student/officeHoursPageUtility.js"></script>
+    <script src="./js/pages/student/joinClass.js" type="module"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./js/pages/common/dashboard.js"></script>
+  </body>
+</html>

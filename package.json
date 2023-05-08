@@ -1,0 +1,27 @@
+{
+  "name": "Edurizon",
+  "version": "1.0.0",
+  "description": "Microsoft Engage'21",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel *.html --https --port=5500 --no-cache",
+    "build": "parcel build *html"
+  },
+  "type": "module",
+  "author": "Saloni Parekh",
+  "license": "ISC",
+  "repository": "https://github.com/saloni0104/Engage-Edurizon-FE",
+  "includePaths": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "jwt-token": "^1.0.9",
+    "moment": "^2.29.1",
+    "parcel": "^2.0.1"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.1",
+    "@parcel/transformer-webmanifest": "^2.0.1"
+  }
+}
