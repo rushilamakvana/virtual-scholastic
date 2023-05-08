@@ -56,13 +56,14 @@ window.onload = function () {
           })
           .then((data) => {
             console.log("data = ", data);
+            localStorage.setItem("token", data.data.token);
             Swal.fire({
               icon: "success",
               title: "Yayy",
               text: "Your assignment has been submitted successfully!",
             });
             setTimeout(() => {
-              window.location.href = "http://localhost:5500/adminPage.html";
+              window.location.href = "https://localhost:5500/adminPage.html";
             }, 1000);
             // if (data) {
             //   if (data.message.includes("successfully")) {
