@@ -24,7 +24,7 @@ window.onload = () => {
       name,
     });
   }
-  //Student View 
+  //Student View
   else {
     document.getElementsByClassName("sidebar")[0].innerHTML = Navbar({
       activeSection: "Assignments",

@@ -180,6 +180,49 @@
     <script src="./js/pages/common/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+      function submitAssignment(id) {
+        var file = document.getElementById("sub_file").files[0];
+        var data = new FormData();
+        data.append("assignment", file);
+        fetch("http://localhost:3000/student/assignment/upload", {
+          method: "POST",
+          headers: new Headers({
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          }),
+          body: data,
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log("response = ", res);
+            var url = res.short_path;
+            var data = {
+              assignment_id: id,
+              fileUrl: url,
+            };
+            fetch("http://localhost:3000/student/assignment/submit", {
+              method: "POST",
+              headers: new Headers({
+                "content-type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              }),
+              body: JSON.stringify({ ...data }),
+            })
+              .then((res) => res.json())
+              .then((res) => {
+                console.log("final = ", res);
+
+                Swal.fire({
+                  icon: "success",
+                  title: "Yayyy",
+                  text: "Student added to course successfully!",
+                });
+                setTimeout(() => {
+                  window.location.href = "assignmentsPage.html";
+                }, 1000);
+              });
+          });
+      }
+
       fetch("http://localhost:3000/student/assignments", {
         method: "POST",
         headers: new Headers({
@@ -216,7 +259,12 @@
                 <h5 class="card-category">
                    ${e.marks} marks
                 </h5>
-               
+                <div style='margin-bottom:20px'> 
+                  <input type='button' value="Submit" style="background-color:#00897b;color:white;border:none;padding:10px 20px;cursor:pointer;" onclick="submitAssignment('${
+                    e._id
+                  }')"/>
+                  <input type="file" id="sub_file" value='choose file' style="cursor:pointer;"  />
+                </div>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ export const AdminNavbar = ({ activeSection }) => {
             <>
               <div class="logo">
                   <span class="ml-3 simple-text logo-mini">
-                      EZ &nbsp &nbsp Edurizon
+                      EZ &nbsp &nbsp Virtual Scholastic
                   </span>
                   
               </div>

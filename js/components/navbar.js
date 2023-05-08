@@ -3,7 +3,7 @@ export const Navbar = ({ isTeacher, activeSection }) => {
           <>
             <div class="logo">
                 <span class="ml-3 simple-text logo-mini">
-                    EZ &nbsp &nbsp Edurizon
+                    EZ &nbsp &nbsp Virtual Scholastic
                 </span>
                 
             </div>
@@ -46,19 +46,7 @@ export const Navbar = ({ isTeacher, activeSection }) => {
                       </li>`
                         : ""
                     }
-                    ${
-                      !isTeacher
-                        ? `<li ${
-                            activeSection === "Submit assignment" &&
-                            'class="active"'
-                          }>
-                          <a href="./submitAssignmentPage.html">
-                              <i class="fas fa-edit"></i>
-                              <p>Submit assignments</p>
-                          </a>
-                      </li>`
-                        : ""
-                    }
+                   
                     ${
                       isTeacher
                         ? `<li ${
@@ -121,6 +109,19 @@ export const Navbar = ({ isTeacher, activeSection }) => {
   `;
 };
 
+// ${
+//   !isTeacher
+//     ? `<li ${
+//         activeSection === "Submit assignment" &&
+//         'class="active"'
+//       }>
+//       <a href="./submitAssignmentPage.html">
+//           <i class="fas fa-edit"></i>
+//           <p>Submit assignments</p>
+//       </a>
+//   </li>`
+//     : ""
+// }
 // ${
 //   !isTeacher
 //     ? `<li ${
