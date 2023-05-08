@@ -187,7 +187,79 @@
         }),
       })
         .then((res) => res.json())
-        .then((res) => console.log("res - ", res));
+        .then((res) => {
+          console.log("res - ", res);
+          var pending_assignments = res.notSubmittedAssignments.map(
+            (e) => ` <div
+          class="card col-12 col-md-10 offset-md-1 mb-5"
+          style="
+            border: 3px solid #00564d;
+            box-shadow: 5px 10px #888888;
+          "
+        >
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <div class="card-header">
+                <b>
+                  <h4 class="card-title; color:#00564d">
+                    ${e.name}
+                  </h4>
+                </b>
+                <h5 class="card-category">
+                  ${e.classrrom_id.subject_code} : ${
+              e.classrrom_id.subject_name
+            }
+                </h5>
+                <h5 class="card-category">
+                  due : ${e.dueDate.slice(0, 10)}
+                </h5>
+                <h5 class="card-category">
+                   ${e.marks} marks
+                </h5>
+               
+              </div>
+            </div>
+          </div>
+        </div>`
+          );
+          var submitted_assignments = res.submittedAssignments.map(
+            (e) => ` <div
+          class="card col-12 col-md-10 offset-md-1 mb-5"
+          style="
+            border: 3px solid #00564d;
+            box-shadow: 5px 10px #888888;
+          "
+        >
+          <div class="row">
+            <div class="col-12 col-md-7">
+              <div class="card-header">
+                <b>
+                  <h4 class="card-title; color:#00564d">
+                    ${e.name}
+                  </h4>
+                </b>
+                <h5 class="card-category">
+                  ${e.classrrom_id.subject_code} : ${
+              e.classrrom_id.subject_name
+            }
+                </h5>
+                <h5 class="card-category">
+                  due : ${e.dueDate.slice(0, 10)}
+                </h5>
+                <h5 class="card-category">
+                   ${e.marks} marks
+                </h5>
+               
+              </div>
+            </div>
+          </div>
+        </div>`
+          );
+          document.getElementById("pending-assignments").innerHTML =
+            pending_assignments;
+          document.getElementById("submitted-assignments").innerHTML =
+            submitted_assignments;
+        });
     </script>
   </body>
 </html>

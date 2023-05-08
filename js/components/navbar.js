@@ -84,84 +84,14 @@ export const Navbar = ({ isTeacher, activeSection }) => {
                       </li>`
                           : ""
                       }
+                  
+                    
+                   
+                     
                     ${
                       isTeacher
                         ? `<li ${
-                            activeSection === "Grades" && 'class="active"'
-                          }>
-                              <a href="./gradeAssignmentsPage.html">
-                                  <i class="fas fa-poll"></i>
-                                  <p>Grade Assignments</p>
-                              </a>
-                          </li>`
-                        : ""
-                    }
-                    ${
-                      isTeacher
-                        ? `<li ${
-                            activeSection === "PostAnnouncement" &&
-                            'class="active"'
-                          }>
-                            <a href="./announcementsPage.html">
-                                <i class="fas fa-question"></i>
-                                <p>Post announcement</p>
-                            </a>
-                        </li>`
-                        : ""
-                    }
-                    ${
-                      !isTeacher
-                        ? `<li ${
-                            activeSection === "Grades" && 'class="active"'
-                          }>
-                        <a href="./viewGradesPage.html">
-                          <i class="fas fa-poll"></i>
-                            <p>View Grades</p>
-                        </a>
-                    </li>`
-                        : ""
-                    }
-                    ${
-                      !isTeacher
-                        ? `<li ${
-                            activeSection === "StudentForum" && 'class="active"'
-                          }>
-                          <a href="./studentForumPage.html">
-                              <i class="fas fa-question"></i>
-                              <p>Student Forum</p>
-                          </a>
-                      </li>`
-                        : ""
-                    }
-                    ${
-                      isTeacher
-                        ? `<li ${
-                            activeSection === "OfficeHours" && 'class="active"'
-                          }>
-                              <a href="./officeHoursTeacherPage.html">
-                                  <i class="fas fa-handshake"></i>
-                                  <p>Office Hours</p>
-                              </a>
-                          </li>`
-                        : ""
-                    }
-                      ${
-                        !isTeacher
-                          ? `<li ${
-                              activeSection === "OfficeHoursStudent" &&
-                              'class="active"'
-                            }>
-                              <a href="./officeHoursPage.html">
-                                  <i class="fas fa-handshake"></i>
-                                  <p>Office Hours</p>
-                              </a>
-                          </li>`
-                          : ""
-                      }
-                    ${
-                      isTeacher
-                        ? `<li ${
-                            activeSection === "OfficeHours" && 'class="active"'
+                            activeSection === "add Student" && 'class="active"'
                           }>
                               <a href="./addStudent.html">
                                   <i class="fas fa-plus"></i>
@@ -183,21 +113,100 @@ export const Navbar = ({ isTeacher, activeSection }) => {
                           </li>`
                           : ""
                       }
-                    ${
-                      isTeacher
-                        ? `<li ${
-                            activeSection === "Students" && 'class="active"'
-                          }>
-                              <a href="./enrolledStudents.html">
-                                  <i class="fas fa-male"></i>
-                                  <p>Students</p>
-                              </a>
-                          </li>`
-                        : ""
-                    }
+                   
                      
                 </ul>
             </div>
           </>
   `;
 };
+
+// ${
+//   !isTeacher
+//     ? `<li ${
+//         activeSection === "Grades" && 'class="active"'
+//       }>
+//     <a href="./viewGradesPage.html">
+//       <i class="fas fa-poll"></i>
+//         <p>View Grades</p>
+//     </a>
+// </li>`
+//     : ""
+// }
+// ${
+//   !isTeacher
+//     ? `<li ${
+//         activeSection === "StudentForum" && 'class="active"'
+//       }>
+//       <a href="./studentForumPage.html">
+//           <i class="fas fa-question"></i>
+//           <p>Student Forum</p>
+//       </a>
+//   </li>`
+//     : ""
+// }
+// ${
+//   !isTeacher
+//     ? `<li ${
+//         activeSection === "OfficeHoursStudent" &&
+//         'class="active"'
+//       }>
+//         <a href="./officeHoursPage.html">
+//             <i class="fas fa-handshake"></i>
+//             <p>Office Hours</p>
+//         </a>
+//     </li>`
+//     : ""
+// }
+
+//teacher
+
+// ${
+//   isTeacher
+//     ? `<li ${
+//         activeSection === "OfficeHours" && 'class="active"'
+//       }>
+//           <a href="./officeHoursTeacherPage.html">
+//               <i class="fas fa-handshake"></i>
+//               <p>Office Hours</p>
+//           </a>
+//       </li>`
+//     : ""
+// }
+// ${
+//   isTeacher
+//     ? `<li ${
+//         activeSection === "Grades" && 'class="active"'
+//       }>
+//           <a href="./gradeAssignmentsPage.html">
+//               <i class="fas fa-poll"></i>
+//               <p>Grade Assignments</p>
+//           </a>
+//       </li>`
+//     : ""
+// }
+// ${
+//   isTeacher
+//     ? `<li ${
+//         activeSection === "PostAnnouncement" &&
+//         'class="active"'
+//       }>
+//         <a href="./announcementsPage.html">
+//             <i class="fas fa-question"></i>
+//             <p>Post announcement</p>
+//         </a>
+//     </li>`
+//     : ""
+// }
+// ${
+//   isTeacher
+//     ? `<li ${
+//         activeSection === "Students" && 'class="active"'
+//       }>
+//           <a href="./enrolledStudents.html">
+//               <i class="fas fa-male"></i>
+//               <p>Students</p>
+//           </a>
+//       </li>`
+//     : ""
+// }
