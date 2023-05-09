@@ -1,9 +1,8 @@
 // Logout Function
 const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("name");
-  localStorage.removeItem("identifier");
-  window.location.href = "https://edurizon.netlify.app";
+  console.log("called log");
+  localStorage.clear();
+  window.location.href = "https://localhost:5500";
 };
 
 //Auto saving notes function
@@ -34,10 +33,8 @@ const noteSaveHandler = () => {
       .then((response) => {
         return response.json();
       })
-      .then((response) => {
-      })
-      .catch((err) => {
-      });
+      .then((response) => {})
+      .catch((err) => {});
   }
 };
 
@@ -60,8 +57,7 @@ function openForm() {
         document.getElementById("notes").innerHTML = response.notes;
       }
     })
-    .catch((err) => {
-    });
+    .catch((err) => {});
 }
 
 function closeForm() {
