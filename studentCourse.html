@@ -100,6 +100,7 @@
     <!-- CSS -->
     <link href="./css/dashboard.css" rel="stylesheet" />
     <link href="./css/notes.css" rel="stylesheet" />
+    <link href="./css/class.css" rel="stylesheet" />
 
     <!-- Title -->
     <title>Virtual Scholastic | My Courses</title>
@@ -180,14 +181,28 @@
                     style="height: 270px; cursor: pointer;width:1000px;"
                   >
                     <div class="card-header">
-                      <h4 class="card-category">${res.data.teacher_details.email}</h4>
-                      <h4 class="card-title">${res.data.teacher_details.name}</h4>
+                      <h4 class="card-category">${
+                        res.data.teacher_details.email
+                      }</h4>
+                      <h4 class="card-title">${
+                        res.data.teacher_details.name
+                      }</h4>
                     </div>
                     <div class="card-header">
                         <h5 class="card-category">Students : </h5>
                        ${students}
                       </div>
-                      <button class="btn-block btn-color" style="width:200px;margin:20px;"  onclick="createVideoCall('${res.data.subject_code}')" >Join Lecture </button>
+                     ${
+                       res.data.isLectureStarted &&
+                       `<button
+                           class="btn-block btn-color"
+                           style="width:200px;margin:20px;"
+                           onclick="createVideoCall('${res.data.subject_code}')"
+                         >
+                           Join Lecture
+                         </button>`
+                     } 
+                     ${!res.data.isLectureStarted && `<div></div`} 
                   </div>
                 </div>
               </div>`;
