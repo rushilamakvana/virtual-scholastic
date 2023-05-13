@@ -240,7 +240,7 @@ window.onload = () => {
               </div>
             </div>
           </div>
-            <button class="btn-block btn-color" style="width:200px;margin:20px;"  onclick="createVideoCall('${res.data.subject_code}')" >Start Lecture </button>
+            <button class="btn-block btn-color" style="width:200px;margin:20px;" onclick="createVideoCall('${res.data.subject_code}')" >Start Lecture </button>
           </div>
         </div>
       </div>`;

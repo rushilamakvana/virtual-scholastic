@@ -193,16 +193,16 @@
                        ${students}
                       </div>
                      ${
-                       res.data.isLectureStarted &&
-                       `<button
+                       res.data.isLectureStarted
+                         ? `<button
                            class="btn-block btn-color"
                            style="width:200px;margin:20px;"
                            onclick="createVideoCall('${res.data.subject_code}')"
                          >
                            Join Lecture
                          </button>`
+                         : `<div></div>`
                      } 
-                     ${!res.data.isLectureStarted && `<div></div`} 
                   </div>
                 </div>
               </div>`;
