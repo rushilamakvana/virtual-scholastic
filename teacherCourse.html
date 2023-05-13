@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="
+    https://cdn.jsdelivr.net/npm/agora-rtc-sdk@3.6.11/AgoraRTCSDK.min.js
+    "></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -98,7 +102,10 @@
     />
 
     <!-- CSS -->
+    <!-- <link href="./css/dashboard.css" rel="stylesheet" />
+    <link href="./css/notes.css" rel="stylesheet" /> -->
     <link href="./css/dashboard.css" rel="stylesheet" />
+    <link href="./css/class.css" rel="stylesheet" />
     <link href="./css/notes.css" rel="stylesheet" />
 
     <!-- Title -->
@@ -146,6 +153,7 @@
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -158,35 +166,14 @@
     ></script>
     <script src="./js/pages/common/dashboard.js"></script>
     <script>
-      fetch("http://localhost:3000/teacher/dashboard", {
-        method: "POST",
-        headers: new Headers({
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          console.log("second - ", res);
-          var data = res.data.classrooms.map(
-            (e) => `<div class="row" id="course-card">
-        <div class="col-12 col-md-4">
-          <div
-            class="card"
-            data-courseId="${e.subject_code}"
-            onclick="getDetails(${res.data._id})"
-            style="height: 270px; cursor: pointer"
-          >
-            <div class="card-header">
-              <h5 class="card-category">${e.subject_code}</h5>
-              <h4 class="card-title">${e.subject_name}</h4>
-            </div>
-          </div>
-        </div>
-      </div>`
-          );
-
-          document.querySelector(".content").innerHTML = data;
-        });
+      function getDetails(id) {
+        let url = new URLSearchParams(window.location.href);
+        console.log("id - ", url);
+        window.location.href = `teacherCourse.html?id=${id}`;
+      }
+      function createVideoCall(classId) {
+        window.location.href = `CreateStream.html?id=${classId}`;
+      }
     </script>
   </body>
 </html>

@@ -187,6 +187,7 @@
                         <h5 class="card-category">Students : </h5>
                        ${students}
                       </div>
+                      <button class="btn-block btn-color" style="width:200px;margin:20px;"  onclick="createVideoCall('${res.data.subject_code}')" >Join Lecture </button>
                   </div>
                 </div>
               </div>`;
@@ -224,6 +225,9 @@
 
           document.querySelector(".content").innerHTML = data;
         });
+      function createVideoCall(classId) {
+        window.location.href = `CreateStream.html?id=${classId}`;
+      }
     </script>
   </body>
 </html>
