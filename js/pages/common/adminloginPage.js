@@ -60,7 +60,7 @@ window.onload = function () {
             Swal.fire({
               icon: "success",
               title: "Yayy",
-              text: "Your assignment has been submitted successfully!",
+              text: "Teacher added successfully!",
             });
             setTimeout(() => {
               window.location.href = "https://localhost:5500/adminPage.html";

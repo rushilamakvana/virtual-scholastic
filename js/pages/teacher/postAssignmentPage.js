@@ -48,6 +48,7 @@ window.onload = () => {
         .then((res) => res.json())
         .then((res) => {
           console.log("response = ", res);
+          console.log(document.getElementById("assign-ques-class-id").value);
           var url = res.short_path;
           var data = {
             classroomId: document.getElementById("assign-ques-class-id").value,
@@ -76,8 +77,12 @@ window.onload = () => {
               Swal.fire({
                 icon: "success",
                 title: "Yayyy",
-                text: "Student added to course successfully!",
+                text: "Assignment created successfully!",
               });
+
+              setTimeout(() => {
+                window.location.href = "teacherCourse.html";
+              }, 1000);
             });
         });
     });

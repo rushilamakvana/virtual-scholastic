@@ -26,7 +26,7 @@ window.onload = function () {
           return response.json();
         })
         .then((response) => {
-          console.log("data = ", response);
+          console.log("data teacher = ", response);
           localStorage.clear();
           //   if (response.token) {
           localStorage.setItem("name", response.data.teacher.name);

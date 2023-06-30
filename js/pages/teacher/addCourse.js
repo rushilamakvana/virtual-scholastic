@@ -74,10 +74,10 @@ window.onload = () => {
             Swal.fire({
               icon: "success",
               title: "Yayy",
-              text: "Student added successfully",
+              text: "Classroom added successfully",
             });
             setTimeout(() => {
-              window.location.href = "/myCoursesPage.html";
+              window.location.href = "/teacherCourse.html";
             }, 1000);
             // if (data.message.includes("successfully")) {
             //   window.location.href = "adminPage.html";

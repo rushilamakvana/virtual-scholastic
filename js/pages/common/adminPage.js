@@ -70,7 +70,7 @@ window.onload = function () {
             setTimeout(() => {
               window.location.href = "https://localhost:5500";
             }, 1000);
-            console.log("data = ", data);
+            console.log("data teacher added = ", data);
           }
 
           document.getElementById("login-button").value = "Login";

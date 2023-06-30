@@ -64,7 +64,7 @@ window.onload = () => {
                 Swal.fire({
                   icon: "success",
                   title: "Yayy",
-                  text: "Your assignment has been submitted successfully!",
+                  text: "student added successfully!",
                 });
                 setTimeout(() => {
                   window.location.href = "teacherCourse.html";
